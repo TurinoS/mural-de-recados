@@ -1,12 +1,18 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <Wrapper>
+    <BrowserRouter>
+      <Wrapper>
+        <Routes>
 
-      <h1>Hello World!</h1>
+        <Route path="/" element={<Home />} />
 
-    </Wrapper>
+        </Routes>
+      </Wrapper>
+    </BrowserRouter>
   );
 }
 
