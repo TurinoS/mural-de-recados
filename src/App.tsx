@@ -1,11 +1,12 @@
-import Header from "./components/Header";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
+    <Wrapper>
+
       <h1>Hello World!</h1>
-    </div>
+
+    </Wrapper>
   );
 }
 

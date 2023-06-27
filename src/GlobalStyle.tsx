@@ -18,8 +18,4 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--font-black);
         font-family: 'Roboto', sans-serif;
     }
-
-    body {
-        background-color: var(--secondary)
-    }
 `
