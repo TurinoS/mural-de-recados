@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 
 interface WrapperProps {
     children: ReactNode
+    toggleTheme(): void
 }
 
 const StyledWrapper = styled.body`
@@ -18,7 +19,7 @@ const StyledWrapper = styled.body`
 export default function Wrapper(props: WrapperProps) {
     return(
         <StyledWrapper>
-            <Header />
+            <Header toggleTheme={props.toggleTheme}/>
             <main>
                 {props.children}
             </main>

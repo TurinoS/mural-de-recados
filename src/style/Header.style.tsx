@@ -1,9 +1,8 @@
 import styled from "styled-components"
-import { MdOutlineLightMode, MdOutlineDarkMode } from 'react-icons/md';
 
 export const StyledHeader = styled.header`
     background-color: var(--primary);
-    padding: .5em;
+    padding: .5em 5vw .5em .5em;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +12,6 @@ export const StyledHeader = styled.header`
     & div {
         display: flex;
         align-items: center;
-        margin-right: 2em;
     }
 
     & img {
@@ -23,20 +21,4 @@ export const StyledHeader = styled.header`
     & h1 {
         color: var(--font-white);
     }
-
-    & input {
-        display: none;
-    }
-`
-
-export const StyledLightIcon = styled(MdOutlineLightMode)`
-    color: var(--font-white);
-    font-size: 30px;
-    margin: 5px 1em;
-`
-
-export const StyledDarkIcon = styled(MdOutlineDarkMode)`
-    color: var(--font-white);
-    font-size: 30px;
-    margin-right: 1em;
 `

@@ -2,11 +2,11 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --green: #309C4D;
-        --font-white: #f9f6eb;
-        --font-black: #022f1c;
-        --primary: #3399A6;
-        --secondary: #349081;
+        --green: ${props => props.theme.colors.green};;
+        --font-white: ${props => props.theme.colors.fontWhite};;
+        --font-black: ${props => props.theme.colors.fontBlack};
+        --primary: ${props => props.theme.colors.primary};;
+        --secondary: ${props => props.theme.colors.secondary};;
         --shadow: #0a290f;
         --border-radius: 18px;
     }

@@ -1,19 +1,33 @@
+import {  StyledHeader } from '../style/Header.style';
 import logo from '../assets/mural-de-recados.png';
-import { StyledDarkIcon, StyledHeader, StyledLightIcon } from '../style/Header.style';
+import ReactSwitch from 'react-switch';
+import { useContext } from 'react'
+import { ThemeContext } from 'styled-components';
 
-export default function Header() {
+interface HeaderProps {
+    toggleTheme(): void
+}
+
+export default function Header( props: HeaderProps ) {
+
+    const { colors, title } = useContext(ThemeContext)
+
     return(
         <StyledHeader>
             <div>
                 <img src={logo} alt="Logo" />
                 <h1>Mural de Recados</h1>
             </div>
-            <div>
-                <label htmlFor="light-mode"><StyledLightIcon /></label>
-                <input id="light-mode" name="light-mode" type="checkbox" />
-                <label htmlFor="dark-mode"><StyledDarkIcon /></label>
-                <input id="dark-mode" name="dark-mode" type="checkbox" />
-            </div>
+                <ReactSwitch 
+                    onChange={props.toggleTheme} 
+                    checked={title === 'dark'} 
+                    checkedIcon={false} 
+                    uncheckedIcon={false}
+                    onColor={colors.fontWhite}
+                    onHandleColor={colors.fontBlack}
+                    offColor={colors.fontBlack}
+                    offHandleColor={colors.fontWhite}
+                />
         </StyledHeader>
     )
 }
