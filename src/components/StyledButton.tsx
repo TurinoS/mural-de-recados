@@ -8,6 +8,7 @@ export const StyledButton = styled.button`
     border-radius: var(--border-radius);
     border: none;
     box-shadow: 2px 2px 10px 1px var(--shadow);
+    max-width: 300px;
 
     &:hover {
         background-color: var(--green);

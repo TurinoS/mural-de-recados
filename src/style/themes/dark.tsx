@@ -5,8 +5,8 @@ const dark = {
         primary: '#012114',
         secondary: '#023229',
         fontWhite: '#f9f6eb',
-        fontBlack: '#2a93a1',
-        green: '#309C4D'
+        fontBlack: '#84c514',
+        green: '#005116'
     },
 };
 
