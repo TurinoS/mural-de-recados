@@ -6,8 +6,11 @@ const StyledMessageCard = styled.div`
     "message message"
     "name date";
     border: 2px solid var(--font-black);
+    border-radius: var(--border-radius);
+    background-color: var(--primary);
     padding: 1em;
     gap: .5em;
+    max-width: 25vw;
 
     & p {
         grid-area: message;
