@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const StyledForm = styled.form`
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     width: 50vw;
     gap: 1em;
     width: 80vw;
@@ -33,9 +33,11 @@ const StyledForm = styled.form`
             color: var(--font-white);
         }
     }
+
+    & button {
+        align-self: flex-end;
+    }
 `
-
-
 
 export default function Form() {
 
@@ -44,7 +46,7 @@ export default function Form() {
 
     function addMessage(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log(`${name} mandou a mensagem ${message}`)
+        console.log(`${name} mandou a mensagem ${message}`);
     }
 
     function writeMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
@@ -57,17 +59,14 @@ export default function Form() {
 
     return(
         <StyledForm onSubmit={addMessage}>
-            <div>
-                <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    placeholder="Seu nome..." 
-                    required 
-                    onChange={writeName}
-                />
-                <StyledButton type="submit">Adicionar mensagem</StyledButton>
-            </div>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Seu nome..." 
+                required 
+                onChange={writeName}
+            />
             <textarea 
                 id="message"
                 name="message" 
@@ -77,6 +76,7 @@ export default function Form() {
                 required
                 onChange={writeMessage}
             />
+            <StyledButton type="submit">Adicionar mensagem</StyledButton>
         </StyledForm>
     )
 }

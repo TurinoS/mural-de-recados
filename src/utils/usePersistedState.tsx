@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 
-
-
 export default function usePersistedState<T>(key: string, initialtState: T) {
-    const [state, setState] = useState(() => {
+    const [state, setState] = useState<T>(() => {
         const storageValue = localStorage.getItem(key);
 
         if(storageValue) {
@@ -17,5 +15,5 @@ export default function usePersistedState<T>(key: string, initialtState: T) {
         localStorage.setItem(key, JSON.stringify(state));
     }, [key, state])
 
-    return [state, setState];
+    return [state, setState] as const;
 };

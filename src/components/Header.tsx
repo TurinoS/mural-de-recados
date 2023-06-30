@@ -2,15 +2,11 @@ import {  StyledHeader } from '../style/Header.style';
 import logo from '../assets/mural-de-recados.png';
 import ReactSwitch from 'react-switch';
 import { useContext } from 'react'
-import { ThemeContext } from 'styled-components';
+import { ThemeContext } from '../context/ThemeContext';
 
-interface HeaderProps {
-    toggleTheme(): void
-}
+export default function Header() {
 
-export default function Header( props: HeaderProps ) {
-
-    const { colors, title } = useContext(ThemeContext)
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     return(
         <StyledHeader>
@@ -19,14 +15,14 @@ export default function Header( props: HeaderProps ) {
                 <h1>Mural de Recados</h1>
             </div>
                 <ReactSwitch 
-                    onChange={props.toggleTheme} 
-                    checked={title === 'dark'} 
+                    onChange={toggleTheme} 
+                    checked={theme.title === 'dark'} 
                     checkedIcon={false} 
                     uncheckedIcon={false}
-                    onColor={colors.fontWhite}
-                    onHandleColor={colors.fontBlack}
-                    offColor={colors.fontBlack}
-                    offHandleColor={colors.fontWhite}
+                    onColor={theme.colors.fontWhite}
+                    onHandleColor={theme.colors.fontBlack}
+                    offColor={theme.colors.fontBlack}
+                    offHandleColor={theme.colors.fontWhite}
                 />
         </StyledHeader>
     )
