@@ -3,7 +3,7 @@ import Form from "../components/Form";
 import { StyledButton } from "../style/StyledButton";
 import MessageCard from "../components/MessageCard";
 import { ApiDataContext } from "../context/ApiContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const StyledHome = styled.div`
     display: flex;
@@ -19,14 +19,9 @@ const StyledHome = styled.div`
     }
 `
 
-export default function Home() {
+export default function Home() { 
 
-    const [showForm, setShowForm] = useState(false);
-    function openForm() {
-        setShowForm(true);
-    }
-
-    const { messagesData } = useContext(ApiDataContext);
+    const { messagesData, showForm, openForm } = useContext(ApiDataContext);
 
     return(
         <StyledHome>

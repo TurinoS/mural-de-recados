@@ -12,6 +12,8 @@ interface ApiContextProps {
     addMessage: (e: React.FormEvent<HTMLFormElement>) => void;
     writeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
     writeMessage: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    showForm: boolean;
+    openForm: () => void;
 }
 
 export const ApiDataContext = createContext<ApiContextProps>({
@@ -19,6 +21,8 @@ export const ApiDataContext = createContext<ApiContextProps>({
     addMessage: () => {},
     writeName: () => {},
     writeMessage: () => {},
+    showForm: false,
+    openForm: () => {},
 });
 
 export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
@@ -31,6 +35,11 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
 
     function writeName(e: React.ChangeEvent<HTMLInputElement>) {
         setCurrentName(e.target.value)
+    }
+
+    const [showForm, setShowForm] = useState(false);
+    function openForm() {
+        setShowForm(true);
     }
 
     function addMessage(e: React.FormEvent<HTMLFormElement>) {
@@ -55,6 +64,7 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
             },
             body: JSON.stringify(newMessage),
         })
+        setShowForm(false);
     }
 
     const [messagesData, setMessagesData] = useState<Messages[]>()
@@ -72,7 +82,7 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
     }, [messagesData])
 
     if(messagesData) {
-        return(<ApiDataContext.Provider value={{ messagesData, addMessage, writeName, writeMessage }}>{children}</ApiDataContext.Provider>)
+        return(<ApiDataContext.Provider value={{ messagesData, addMessage, writeName, writeMessage, showForm, openForm }}>{children}</ApiDataContext.Provider>)
     } else {
         return(null)
     }
