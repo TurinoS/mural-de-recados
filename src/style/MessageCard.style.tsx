@@ -3,14 +3,14 @@ import styled from "styled-components";
 const StyledMessageCard = styled.div`
     display: grid;
     grid-template-areas: 
-    "message message"
-    "name date";
+    "name date"
+    "message message";
     border: 2px solid var(--font-black);
     border-radius: var(--border-radius);
     background-color: var(--font-white);
-    padding: 1em;
-    gap: .5em;
-    max-width: 25vw;
+    padding: 1.5em;
+    gap: .8em;
+    width: 100%;
     box-shadow: 3px 3px 6px 3px var(--shadow);
 
     & p {

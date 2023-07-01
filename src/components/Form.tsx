@@ -4,20 +4,20 @@ import { useState } from "react";
 
 export default function Form() {
 
-    const [message, setMessage] = useState('')
-    const [name, setName] = useState('')
+    const [currentMessage, setCurrentMessage] = useState('')
+    const [currentName, setCurrentName] = useState('')
 
     function addMessage(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log(`${name} mandou a mensagem ${message}`);
+        console.log(`${currentName} mandou a mensagem ${currentMessage}`);
     }
 
     function writeMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        setMessage(e.target.value)
+        setCurrentMessage(e.target.value)
     }
 
     function writeName(e: React.ChangeEvent<HTMLInputElement>) {
-        setName(e.target.value)
+        setCurrentName(e.target.value)
     }
 
     return(
