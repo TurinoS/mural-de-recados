@@ -1,28 +1,32 @@
-import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 import { ReactNode } from "react";
+import { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext';
+import { StyledWrapperDark, StyledWrapperLight } from "../style/Wrapper.style";
 
 interface WrapperProps {
     children: ReactNode
 }
 
-const StyledWrapper = styled.body`
-    & main {
-        padding: 5vh 7vw;
-        min-height: calc(100vh - 119.28px);
-        background-color: var(--secondary);
-    }
-`
-
 export default function Wrapper(props: WrapperProps) {
-    return(
-        <StyledWrapper>
+    const { theme } = useContext(ThemeContext);
+
+    if(theme) {return(
+        <StyledWrapperLight>
             <Header />
             <main>
                 {props.children}
             </main>
             <Footer />
-        </StyledWrapper>
-    )
+        </StyledWrapperLight>
+    )} else { return(
+        <StyledWrapperDark>
+            <Header />
+            <main>
+                {props.children}
+            </main>
+            <Footer />
+        </StyledWrapperDark>
+    )}
 }

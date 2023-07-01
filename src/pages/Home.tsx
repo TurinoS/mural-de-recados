@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Form from "../components/Form";
-import { StyledButton } from "../components/StyledButton";
+import { StyledButton } from "../style/StyledButton";
 import { useState } from "react";
 import MessageCard from "../components/MessageCard";
 

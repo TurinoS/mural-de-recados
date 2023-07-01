@@ -18,7 +18,4 @@ export const StyledHeader = styled.header`
         width: 94px;
     }
 
-    & h1 {
-        color: var(--font-white);
-    }
 `

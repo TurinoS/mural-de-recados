@@ -7,15 +7,15 @@ import { ThemeProvider } from "./context/ThemeContext";
 function App() {
   return (
     <ThemeProvider>
-      <GlobalStyle />
       <BrowserRouter>
-        <Wrapper>
-          <Routes>
+      <GlobalStyle />
+          <Wrapper>
+            <Routes>
 
-          <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
 
-          </Routes>
-        </Wrapper>
+            </Routes>
+          </Wrapper>
       </BrowserRouter>
     </ThemeProvider>
   );

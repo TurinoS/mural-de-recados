@@ -1,37 +1,21 @@
-import { ReactNode, createContext } from "react";
-import usePersistedState from "../utils/usePersistedState";
-
-import light from '../style/themes/light';
-import dark from '../style/themes/dark';
+import { ReactNode, createContext, useState } from "react";
 
 interface ThemeContextProps {
-    theme: {
-      title: string;
-      colors: {
-        primary: string;
-        secondary: string;
-        fontWhite: string;
-        fontBlack: string;
-        green: string;
-      };
-    };
+    theme: boolean
     toggleTheme: () => void;
-  }
+}
   
-  export const ThemeContext = createContext<ThemeContextProps>({
-    theme: dark,
+export const ThemeContext = createContext<ThemeContextProps>({
+    theme: true,
     toggleTheme: () => {}
-  });
+});
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = usePersistedState('theme', light)
+    const [theme, setTheme] = useState(true)
 
     const toggleTheme = () => {
-        setTheme(prevTheme => ({
-            ...prevTheme,
-            title: prevTheme.title === "light" ? "dark" : "light"
-        }));
+        setTheme(!theme)
     };
-
+    
     return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
 };
