@@ -13,4 +13,17 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--font-black);
         font-family: 'Roboto', sans-serif;
     }
+
+    body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #023229;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #84c514;
+        border-radius: 20px;
+    }
 `

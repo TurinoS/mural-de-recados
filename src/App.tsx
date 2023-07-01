@@ -3,6 +3,7 @@ import Wrapper from "./components/Wrapper";
 import Home from "./pages/Home";
 import { GlobalStyle } from "./style/GlobalStyle";
 import { ThemeProvider } from "./context/ThemeContext";
+import { ApiDataProvider } from "./context/ApiContext";
 
 function App() {
   return (
@@ -10,11 +11,11 @@ function App() {
       <BrowserRouter>
       <GlobalStyle />
           <Wrapper>
-            <Routes>
-
-            <Route path="/" element={<Home />} />
-
-            </Routes>
+            <ApiDataProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+              </Routes>
+            </ApiDataProvider>
           </Wrapper>
       </BrowserRouter>
     </ThemeProvider>

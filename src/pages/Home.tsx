@@ -1,15 +1,9 @@
 import styled from "styled-components";
 import Form from "../components/Form";
 import { StyledButton } from "../style/StyledButton";
-import { useEffect, useState } from "react";
 import MessageCard from "../components/MessageCard";
-
-interface Messages {
-    id: number
-    name: string
-    message: string
-    date: string
-}
+import { ApiDataContext } from "../context/ApiContext";
+import { useContext, useState } from "react";
 
 const StyledHome = styled.div`
     display: flex;
@@ -19,9 +13,9 @@ const StyledHome = styled.div`
 
     & section {
         display: flex;
+        flex-direction: column-reverse;
         justify-content: space-between;
         gap: 1em;
-        flex-wrap: wrap;
     }
 `
 
@@ -32,19 +26,7 @@ export default function Home() {
         setShowForm(true);
     }
 
-    const [messagesData, setMessagesData] = useState<Messages[]>()
-
-    useEffect(() => {
-        fetch('http://localhost:5000/messages', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(resp => resp.json())
-        .then(data => setMessagesData(data))
-        .catch(err => console.log(err))
-    }, [setMessagesData])
+    const { messagesData } = useContext(ApiDataContext);
 
     return(
         <StyledHome>
