@@ -9,7 +9,26 @@ export default function Form() {
 
     function addMessage(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log(`${currentName} mandou a mensagem ${currentMessage}`);
+
+        const data = new Date();
+        const day = data.getDate();
+        const month = data.getMonth() + 1;
+        const year = data.getFullYear();
+        const formatedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
+
+        let newMessage = {
+            message: currentMessage,
+            name: currentName,
+            date: formatedDate
+        }
+
+        fetch('http://localhost:5000/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newMessage),
+        })
     }
 
     function writeMessage(e: React.ChangeEvent<HTMLTextAreaElement>) {
