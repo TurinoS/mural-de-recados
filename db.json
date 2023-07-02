@@ -1,46 +1,16 @@
 {
   "messages": [
     {
-      "name": "Paulo Turino Silva",
-      "message": "A felicidade está na jornada e não no destino. Aproveite cada segundo dessa maravilhosa viagem que se chama vida. Seja feliz e faça as pessoas felizes, esse é o sentido da vida.",
-      "date": "01/07/2023",
-      "id": 4
+      "name": "Giovana Miti",
+      "message": "Love everybody!",
+      "date": "02/07/2023 09:12",
+      "id": 1
     },
     {
-      "message": "As dificuldades fazem parte da sua história, se você está pensando em desistir, saiba que quando tudo isso passar, você será uma pessoa extremamente melhor do que você é hoje.",
-      "name": "Lucas da Silva",
-      "date": "01/07/2023",
-      "id": 5
-    },
-    {
-      "message": "Somos todos iguais.",
-      "name": "Daniel Souza",
-      "date": "01/07/2023",
-      "id": 6
-    },
-    {
-      "name": "Jonathan Marques",
-      "message": "Tome banho para ficar cheiroso, pois quem não toma banho é fedido. Minha mãe não costuma tomar banho, logo ela é fedida. Meu pai, toma banho só de final de semana, por este motivo ele cheira a flores no sábado e no domingo.",
-      "date": "01/07/2023",
-      "id": 7
-    },
-    {
-      "name": "Azul marinho",
-      "message": "Meu no me é uma cor e eu sofro por causa disso",
-      "date": "01/07/2023",
-      "id": 8
-    },
-    {
-      "name": "Amarelo maduro",
-      "message": "torne amarelo esse rato burro\n",
-      "date": "01/07/2023",
-      "id": 9
-    },
-    {
-      "name": "Giovana Miti Aibara Paschoal",
-      "message": "Love ir everywhere.",
-      "date": "02/07/2023 08:16",
-      "id": 10
+      "name": "Paulo Turino",
+      "message": "Seja feliz e se esforce para ajudar as pessoas à sua volta a serem também... A felicidade só é verdadeira quando é compartilhada.",
+      "date": "02/07/2023 09:16",
+      "id": 2
     }
   ]
 }

@@ -14,6 +14,7 @@ interface ApiContextProps {
     writeMessage: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     showForm: boolean;
     openForm: () => void;
+    deleteMessage: (id: number) => void;
 }
 
 export const ApiDataContext = createContext<ApiContextProps>({
@@ -23,9 +24,27 @@ export const ApiDataContext = createContext<ApiContextProps>({
     writeMessage: () => {},
     showForm: false,
     openForm: () => {},
+    deleteMessage: () => {},
 });
 
 export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
+
+//------------------ Get requisition --------------------------------------
+    const [messagesData, setMessagesData] = useState<Messages[]>()
+
+    useEffect(() => {
+        fetch('https://familiar-functional-floor.glitch.me/messages', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(resp => resp.json())
+        .then(data => setMessagesData(data))
+        .catch(err => console.log(err))
+    }, [messagesData])
+
+//------------------ Post requisition --------------------------------------    
     const [currentMessage, setCurrentMessage] = useState('')
     const [currentName, setCurrentName] = useState('')
 
@@ -59,7 +78,7 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
             date: formatedDate
         }
 
-        fetch('http://localhost:5000/messages', {
+        fetch('https://familiar-functional-floor.glitch.me/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,22 +88,22 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
         setShowForm(false);
     }
 
-    const [messagesData, setMessagesData] = useState<Messages[]>()
-
-    useEffect(() => {
-        fetch('http://localhost:5000/messages', {
-            method: 'GET',
+//------------------ Delete requisition --------------------------------------
+    function deleteMessage(id: number) {
+        fetch(`https://familiar-functional-floor.glitch.me/messages/${id}`, {
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
             },
         })
-        .then(resp => resp.json())
-        .then(data => setMessagesData(data))
-        .catch(err => console.log(err))
-    }, [messagesData])
+        if(messagesData) {
+            const newMessagesArray = messagesData.filter(message => message.id !== id)
+            setMessagesData(newMessagesArray);
+        }
+    }
 
     if(messagesData) {
-        return(<ApiDataContext.Provider value={{ messagesData, addMessage, writeName, writeMessage, showForm, openForm }}>{children}</ApiDataContext.Provider>)
+        return(<ApiDataContext.Provider value={{ messagesData, addMessage, writeName, writeMessage, showForm, openForm, deleteMessage }}>{children}</ApiDataContext.Provider>)
     } else {
         return(null)
     }

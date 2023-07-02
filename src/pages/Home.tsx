@@ -13,8 +13,8 @@ const StyledHome = styled.div`
 
     & section {
         display: flex;
+        width: 100%;
         flex-direction: column-reverse;
-        justify-content: space-between;
         gap: 1em;
     }
 `
@@ -28,7 +28,7 @@ export default function Home() {
             {showForm ? <Form /> : <StyledButton onClick={openForm}>Adicione uma mensagem</StyledButton>}
             <section>
                 {messagesData ? messagesData.map((message) => (
-                    <MessageCard key={message.id} message={message.message} name={message.name} date={message.date}/>
+                    <MessageCard id={message.id} key={message.id} message={message.message} name={message.name} date={message.date}/>
                 )): ''}
             </section>
         </StyledHome>
