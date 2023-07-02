@@ -12,7 +12,7 @@ export default function Header() {
         <StyledHeader>
             <div>
                 <img src={logo} alt="Logo" />
-                <h1>Mural de Recados</h1>
+                <h1>Mural de Mensagens</h1>
             </div>
                 <ReactSwitch 
                     onChange={toggleTheme} 
