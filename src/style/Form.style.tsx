@@ -35,6 +35,15 @@ const StyledForm = styled.form`
     & button {
         align-self: flex-end;
     }
+
+    @media (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+
+        & input {
+            max-width: 300px;
+        }
+    }
 `
 
 export default StyledForm

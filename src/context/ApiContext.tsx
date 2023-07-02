@@ -49,7 +49,9 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
         const day = data.getDate();
         const month = data.getMonth() + 1;
         const year = data.getFullYear();
-        const formatedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
+        const hours = data.getHours();
+        const minutes = data.getMinutes();
+        const formatedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
 
         const newMessage = {
             name: currentName,
