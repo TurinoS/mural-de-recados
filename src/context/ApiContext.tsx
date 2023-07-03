@@ -42,7 +42,7 @@ export const ApiDataProvider = ({ children }: { children: ReactNode }) => {
         .then(resp => resp.json())
         .then(data => setMessagesData(data))
         .catch(err => console.log(err))
-    }, [messagesData])
+    }, [messagesData, setMessagesData])
 
 //------------------ Post requisition --------------------------------------    
     const [currentMessage, setCurrentMessage] = useState('')
